@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      {{ totalPriceMethods() }}
+      {{ totalPriceMethods() }}
+      {{ totalPrice }}
+      {{ totalPrice }}
+    </div>
+
+    <script>
+      let app = new Vue({
+        el: "#app",
+        data() {
+          return {
+            price: 1,
+            number: 1,
+            reactiveTest: {
+              name: "test",
+            },
+            books: [
+              {
+                id: 1,
+                title: "title1",
+                author: "author name1",
+                url: "https://google.com",
+              },
+              {
+                id: 2,
+                title: "title2",
+                author: "author name1",
+                url: "https://google.com",
+              },
+              {
+                id: 3,
+                title: "title3",
+                author: "author name1",
+                url: "https://google.com",
+              },
+            ],
+          };
+        },
+        methods: {
+          totalPriceMethods() {
+            return this.price * this.number;
+          },
+        },
+        watch: {
+          books: {
+            handler() {
+              console.log("変更されました");
+            },
+            deep: true,
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
